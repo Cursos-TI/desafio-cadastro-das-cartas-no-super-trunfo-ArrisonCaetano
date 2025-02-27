@@ -10,6 +10,9 @@ int main() {
     float card01_area;
     float card01_PIB;
     int card01_Tpoints;
+
+    float card01_density;
+    float card01_PIBcapita;
     
      //variaveis da carta 02
      char card02_state[20];
@@ -20,6 +23,8 @@ int main() {
      float card02_PIB;
      int card02_Tpoints;
      
+    float card02_density;
+    float card02_PIBcapita;
 
     
      //cadastrando a carta 01
@@ -46,8 +51,12 @@ int main() {
      scanf("%f", &card01_Tpoints);
 
 
+    // calculando a densidade populacional  e o PIB PERCAPITA
+    card01_density = card01_population/card01_area; 
+    card01_PIBcapita = card01_PIB/card01_population;
+
      //cadastrando a carta 02
-     printf("Cadestre da segunda carta(carta 02)\n");
+     printf("Cadastre da segunda carta(carta 02)\n");
      printf("digite o estado :\n");
      scanf("%s", card02_state);
 
@@ -68,6 +77,10 @@ int main() {
 
      printf("digite a quantidade de pontos turisticos 02 :\n");
      scanf("%f", &card02_Tpoints);
+
+    // calculando a densidade populacional  e o PIB PERCAPITA
+     card02_density = card02_population/card02_area; 
+     card02_PIBcapita = card02_PIB/card02_population;
     
      
     // Imprimindo os dados cadastrados da carta 01
@@ -83,7 +96,8 @@ int main() {
     printf("Área: %f\n" ,card01_area );
     printf("PIB: %f\n" ,card01_PIB );
     printf("Número de Pontos Turísticos: %f\n" ,card01_Tpoints );
-
+    printf("A densidade populacional da carta 01 é de : %f\n", card01_density);
+    printf("A densidade populacional da carta 01 é de : %f\n", card01_PIBcapita);
     printf("\n\n"); 
 
     // Imprimindo os dados cadastrados da carta 02
@@ -99,9 +113,25 @@ int main() {
     printf("Área: %f\n" ,card02_area );
     printf("PIB: %f\n" ,card02_PIB );
     printf("Número de Pontos Turísticos: %f\n" ,card02_Tpoints );
+    printf("A densidade populacional da carta 02 é de : %f\n", card02_density);
+    printf("O PIB PER CAPITA é de : %f\n", card02_PIBcapita);
 
-    printf("\n"); 
+    printf("\n\n"); 
 
+
+
+    printf("População da Carta 1: %d\n", card01_population);
+    printf("População da Carta 2: %d\n", card02_population);
+    
+    // Comparando as populações
+    if (card01_population > card02_population) {
+        printf("\nA Carta 1 (%s) venceu com uma população maior!\n", card01_city);
+    } else if (card02_population > card01_population) {
+        printf("\nA Carta 2 (%s) venceu com uma população maior!\n", card02_city);
+    } else {
+        printf("\nAs duas cartas têm a mesma população!\n");
+    }
+        
     
     
 
